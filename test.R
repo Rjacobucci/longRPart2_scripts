@@ -1,6 +1,7 @@
 wisc <- read.table("C:/Users/RJacobucci/Documents/GitHub/EDM_Labs/2015/wisc4vpe.dat")
 wisc <- read.table("C:/Users/jacobucc/Documents/GitHub/EDM_Labs/2015/wisc4vpe.dat")
 wisc <- read.table("C:/Users/rjacobuc/Documents/GitHub/EDM_Labs/2015/wisc4vpe.dat")
+wisc <- read.table("/Users/rjacobuc//Documents/GitHub/EDM_Labs/2015/wisc4vpe.dat")
 names(wisc)<- c("V1","V2","V4","V6","P1","P2","P4", "P6", "Moeducat")
 
 
@@ -45,13 +46,16 @@ lme1 <- lme(verbal ~ grade,random=~1|id,wisc.long)
 
 
 
-lcart.mod1 <- longRPart2(method="lme",
+lcart.mod1 <- lrp(method="lme",
                          fixedFormula=verbal ~ grade,
                          rPartFormula = ~ Moeducat + noise,
                          randomFormula=~1|id,
                          data=wisc.long,
                          control=rpart.control(cp=.01))
 
+lrpTreePlot(lcart.mod1)
+lrp2Plot(lcart.mod1)
+lrpPlot(lcart.mod1)
 
 lcart.mod1 <- longRPart2(method="lme",
                          fixedFormula=verbal ~ grade,
