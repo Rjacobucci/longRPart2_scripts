@@ -60,6 +60,8 @@ LONGTREEResults = lrp(method="nlme",
 LONGTREEResults$rpart_out
 summary(LONGTREEResults)
 
+plot(LONGTREEResults$nlmeModel)
+
 lrp2Plot(LONGTREEResults)
 lrpPlot(LONGTREEResults)
 lrpTreePlot(LONGTREEResults)
