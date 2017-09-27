@@ -28,12 +28,15 @@ names(wisc.long.sel)[2] <- "grade"
 ## longRPart2
 
 
-lcart.mod1 <- longRPart2(method="lme",
+lcart.mod1 <- lrp(method="lme",
                          fixedFormula=verbal ~ grade,
                          rPartFormula = ~ Moeducat,
                          randomFormula=~1|id,
                          data=wisc.long)
+
+plot(lcart.mod1)
 lcart.mod1$rpart_out
+summary(lcart.mod1)
 
 
 summary(lcart.mod1)

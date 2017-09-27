@@ -26,23 +26,23 @@ names(wisc.long)[3] <- "grade"
 names(wisc.long.sel)[3] <- "grade"
 
 
-fm1 <- nlme(height ~ SSasymp(age, Asym, R0, lrc),
-            data = Loblolly,
-            fixed = Asym + R0 + lrc ~ 1,
-            random = Asym ~ 1,
-            start = c(Asym = 103, R0 = -8.5, lrc = -3.3))
+#fm1 <- nlme(height ~ SSasymp(age, Asym, R0, lrc),
+#            data = Loblolly,
+#            fixed = Asym + R0 + lrc ~ 1,
+#            random = Asym ~ 1,
+#            start = c(Asym = 103, R0 = -8.5, lrc = -3.3))
 
 
 
-mix1 <- nlme(verbal ~ SSasymp(), random = ~ grade | id,start=c(1,1),
-             fixed = b0i + b1i | 1,
-            data = wisc.long, method="ML" )
-summary(mix1) # get same estimates as in LGM, notice SD not VAR
+#mix1 <- nlme(verbal ~ SSasymp(), random = ~ grade | id,start=c(1,1),
+#             fixed = b0i + b1i | 1,
+#            data = wisc.long, method="ML" )
+#summary(mix1) # get same estimates as in LGM, notice SD not VAR
 
 ## longRPart2
 
 
-lme1 <- lme(verbal ~ grade,random=~1|id,wisc.long)
+#lme1 <- lme(verbal ~ grade,random=~1|id,wisc.long)
 
 
 
@@ -56,6 +56,7 @@ lcart.mod1 <- lrp(method="lme",
 lrpTreePlot(lcart.mod1)
 lrp2Plot(lcart.mod1)
 lrpPlot(lcart.mod1)
+summary(lcart.mod1)
 
 lcart.mod1 <- longRPart2(method="lme",
                          fixedFormula=verbal ~ grade,

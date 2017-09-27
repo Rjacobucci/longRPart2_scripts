@@ -1,4 +1,4 @@
-setwd("/Users/rjacobuc/Desktop")
+setwd("/Users/rjacobuc/Documents/GitHub/longRPart2_scripts")
 
 
 ECLSK_1000 = read.table("Subset1000_READING_PREDICTORS_AGE.dat",
@@ -54,9 +54,11 @@ LONGTREEResults = lrp(method="nlme",
                              group= ~ CHILDID,
                              randomFormula=b0i+b1i~1,
                              data=TRAINING,
+                             min.dev=5,
                              start=c(-2,4,1))
 
 LONGTREEResults$rpart_out
+summary(LONGTREEResults)
 
 lrp2Plot(LONGTREEResults)
 lrpPlot(LONGTREEResults)
