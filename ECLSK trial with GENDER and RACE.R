@@ -1,6 +1,7 @@
 setwd("/Users/rjacobuc/Documents/GitHub/longRPart2_scripts")
 
 
+
 ECLSK_1000 = read.table("Subset1000_READING_PREDICTORS_AGE.dat",
                         na.strings = ".")
 
