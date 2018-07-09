@@ -84,7 +84,25 @@ lcart.mod1 <- lrp(method="nlme",
                          randomFormula=b0i+b1i~1,
                          data=ex.data.2,
                          start=c(10,5))
-plot(lcart.mod1$rpart_out);text(lcart.mod1$rpart_out)
+plot(lcart.mod1)
+lrp2Plot(lcart.mod1)
+
+node.fun1 <- function(x, labs, digits, varlen)
+{
+  paste("dev", round(summary(x)$frame$dev,2))
+}
+summary(lcart.mod1$rpart_out)$frame$dev
+
+rpart.plot(lcart.mod1$rpart_out,nn=T,node.fun=node.fun1)
+
+f_effects = lcart.mod1$fixed_effects
+unlist(f_effects)
+
+for(i in 1:length(f_effects)){
+  print(f_effects[[i]])
+}
+
+
 lrp2Plot(lcart.mod1) # not working
 lrpTreePlot(lcart.mod1$rpart_out,use.n=F) # not working
 str(lcart.mod1)
