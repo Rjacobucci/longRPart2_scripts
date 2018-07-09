@@ -63,7 +63,7 @@ summary(LONGTREEResults)
 
 plot(LONGTREEResults)
 
-lrp2Plot(LONGTREEResults)
+lrp2Plot(LONGTREEResults,smooth_method="loess")
 lrpPlot(LONGTREEResults)
 lrpTreePlot(LONGTREEResults)
 #Results

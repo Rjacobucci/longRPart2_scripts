@@ -84,6 +84,7 @@ lcart.mod1 <- lrp(method="nlme",
                          randomFormula=b0i+b1i~1,
                          data=ex.data.2,
                          start=c(10,5))
+<<<<<<< HEAD
 plot(lcart.mod1)
 lrp2Plot(lcart.mod1)
 
@@ -105,6 +106,13 @@ for(i in 1:length(f_effects)){
 
 lrp2Plot(lcart.mod1) # not working
 lrpTreePlot(lcart.mod1$rpart_out,use.n=F) # not working
+=======
+plot(lcart.mod1$rpart_out);text(lcart.mod1$rpart_out)
+lrp2Plot(lcart.mod1,smooth_method="loess") # not working
+lrpTreePlot(lcart.mod1) # not working
+lrpTreePlot_gabi(lcart.mod1)
+
+>>>>>>> origin/master
 str(lcart.mod1)
 
 for(j in 1:length(table(lcart.mod1$where))){
